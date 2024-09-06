@@ -1,0 +1,22 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "ConnectionStrings": {
+    "Host": "127.0.0.1",
+    "Database": "minimalApiDb",
+    "UserName": "root",
+    "Password": "Passw0rd!",
+    "Port": "3308"
+  },
+  "Jwt": {
+    "Issuer": "https://www.example.com",
+    "Audience": "urn:minimal-api.api",
+    "Secret": "5DB94C64892FB2B6385C485111F07EDAEDADA57BF3A7D7AC578C122890679DFA740FE9A3480D4F747F93BC9F5A02059E22D9CDEB67A129B31F41791BECA0EB4902A7D610A7641C35EC1F2C3BD24EBBDBAED471C7F3390835D5B13C2E15DEB54F934B0DD241ED117FCA37FEA18D0C6B90C532E7645FDD62405A88D716666AEE9E",
+    "Seconds": 86400
+  }
+}

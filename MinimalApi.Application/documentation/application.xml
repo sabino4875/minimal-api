@@ -1,0 +1,583 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MinimalApi.Application</name>
+    </assembly>
+    <members>
+        <member name="T:MinimalApi.Application.Criteria.AdministradorCriteria">
+            <summary>
+            Filtro utilizado nas requisições de uma entidade usuário
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.Criteria.AdministradorCriteria.Pagina">
+            <summary>
+            Página atual
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.Criteria.AdministradorCriteria.Nome">
+            <summary>
+            Nome
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.Criteria.AdministradorCriteria.Email">
+            <summary>
+            E-mail
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.Criteria.AdministradorCriteria.Perfil">
+            <summary>
+            Perfil
+            </summary>
+        </member>
+        <member name="T:MinimalApi.Application.Criteria.VeiculoCriteria">
+            <summary>
+            Filtro utilizado nas requisições de uma entidade veículo
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.Criteria.VeiculoCriteria.Pagina">
+            <summary>
+            Página atual
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.Criteria.VeiculoCriteria.Modelo">
+            <summary>
+            Modelo
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.Criteria.VeiculoCriteria.Marca">
+            <summary>
+            Marca
+            </summary>
+        </member>
+        <member name="T:MinimalApi.Application.DTOs.AdministradorDTO">
+            <summary>
+            Representa os dados de visualização / edição de uma entidade usuário
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.DTOs.AdministradorDTO.Id">
+            <summary>
+            Cóodigo de identificação da entidade
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.DTOs.AdministradorDTO.Nome">
+            <summary>
+            Nome
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.DTOs.AdministradorDTO.Email">
+            <summary>
+            E-mail
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.DTOs.AdministradorDTO.Perfil">
+            <summary>
+            Perfil
+            </summary>
+        </member>
+        <member name="T:MinimalApi.Application.DTOs.AlteraSenhaDTO">
+            <summary>
+            Representa os dados para acesso ao sistema
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.DTOs.AlteraSenhaDTO.Email">
+            <summary>
+            E-mail
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.DTOs.AlteraSenhaDTO.Senha">
+            <summary>
+            Senha
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.DTOs.AlteraSenhaDTO.Codigo">
+            <summary>
+            Código utilizado na validação
+            </summary>
+        </member>
+        <member name="T:MinimalApi.Application.DTOs.CreateAdministradorDTO">
+            <summary>
+            Representa os dados de cadastro de uma nova entidade usuário
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.DTOs.CreateAdministradorDTO.Nome">
+            <summary>
+            Nome
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.DTOs.CreateAdministradorDTO.Email">
+            <summary>
+            E-mail
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.DTOs.CreateAdministradorDTO.Senha">
+            <summary>
+            Senha
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.DTOs.CreateAdministradorDTO.Perfil">
+            <summary>
+            Perfil
+            </summary>
+        </member>
+        <member name="T:MinimalApi.Application.DTOs.LoginDTO">
+            <summary>
+            Representa os dados para acesso ao sistema
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.DTOs.LoginDTO.Email">
+            <summary>
+            E-mail
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.DTOs.LoginDTO.Senha">
+            <summary>
+            Senha
+            </summary>
+        </member>
+        <member name="T:MinimalApi.Application.DTOs.MensagemDTO">
+            <summary>
+            Monta uma mensagem de retorno de requisição
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.DTOs.MensagemDTO.Mensagem">
+            <summary>
+            Mensagem
+            </summary>
+        </member>
+        <member name="T:MinimalApi.Application.DTOs.PagedResultDTO`1">
+            <summary>
+            Representa o resultado de uma listagem contendo a paginação de uma entidade
+            </summary>
+            <typeparam name="TEntity">Entidade</typeparam>
+        </member>
+        <member name="M:MinimalApi.Application.DTOs.PagedResultDTO`1.#ctor(System.Int64,System.Int32,System.Int32,System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Método construtor da classe
+            </summary>
+            <param name="count">Total de registros na tabela</param>
+            <param name="page">Página atual</param>
+            <param name="itemsPerPage">Quantidade de registros por página</param>
+            <param name="items">Listagem com dados da entidade</param>
+        </member>
+        <member name="P:MinimalApi.Application.DTOs.PagedResultDTO`1.Total">
+            <summary>
+            Total de registros
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.DTOs.PagedResultDTO`1.Page">
+            <summary>
+            Página atual
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.DTOs.PagedResultDTO`1.TotalPages">
+            <summary>
+            Total de páginas disponíveis
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.DTOs.PagedResultDTO`1.Items">
+            <summary>
+            Resultado da consulta
+            </summary>
+        </member>
+        <member name="T:MinimalApi.Application.DTOs.CreateVeiculoDTO">
+            <summary>
+            Classe que representa os dados de inclusão de um novo veículo
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.DTOs.CreateVeiculoDTO.Marca">
+            <summary>
+            Marca do veículo
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.DTOs.CreateVeiculoDTO.Modelo">
+            <summary>
+            Nodelo do veículo
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.DTOs.CreateVeiculoDTO.Ano">
+            <summary>
+            Ano de fabricação do veículo
+            </summary>
+        </member>
+        <member name="T:MinimalApi.Application.DTOs.VeiculoDTO">
+            <summary>
+            Classe que representa os dados de navegação / edição de um veículo
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.DTOs.VeiculoDTO.Id">
+            <summary>
+            Código identificador da entidade
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.DTOs.VeiculoDTO.Marca">
+            <summary>
+            Marca do veículo
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.DTOs.VeiculoDTO.Modelo">
+            <summary>
+            Nodelo do veículo
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Application.DTOs.VeiculoDTO.Ano">
+            <summary>
+            Ano de fabricação do veículo
+            </summary>
+        </member>
+        <member name="T:MinimalApi.Application.Extensions.FluentValidationExtension">
+            <summary>
+            Métodos de extensão da classe ValidationResult
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Extensions.FluentValidationExtension.ToDictionary(FluentValidation.Results.ValidationResult)">
+            <summary>
+            Converte os erros para um dicionário de dados
+            </summary>
+            <param name="validationResult">O retorno de um validador</param>
+            <returns>O dicionário gerado</returns>
+        </member>
+        <member name="T:MinimalApi.Application.Profiles.AdministradorProfile">
+            <summary>
+            Classe responsável pelo mapeamento da entidade Usuario
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Profiles.AdministradorProfile.#ctor">
+            <summary>
+            Método construtor da classe
+            </summary>
+        </member>
+        <member name="T:MinimalApi.Application.Profiles.VeiculoProfile">
+            <summary>
+            Classe responsável pelo mapeamento da entidade Veiculo
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Profiles.VeiculoProfile.#ctor">
+            <summary>
+            Método construtor da classe
+            </summary>
+        </member>
+        <member name="T:MinimalApi.Application.Services.IAdministradorService">
+            <summary>
+            Contem os métodos para o acesso as rotinas de manipulação de dados da entidade usuário
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Services.IAdministradorService.Login(MinimalApi.Application.DTOs.LoginDTO)">
+            <summary>
+            Geração do token para o a cesso ao sistema 
+            </summary>
+            <param name="loginDTO">Dados de login</param>
+            <returns>O resultado da operação</returns>
+        </member>
+        <member name="M:MinimalApi.Application.Services.IAdministradorService.Insert(MinimalApi.Application.DTOs.CreateAdministradorDTO)">
+            <summary>
+            Inclui um novo usuário
+            </summary>
+            <param name="entity">Dados do usuário</param>
+            <returns>O id do administrador</returns>
+        </member>
+        <member name="M:MinimalApi.Application.Services.IAdministradorService.Update(MinimalApi.Application.DTOs.AdministradorDTO)">
+            <summary>
+            Atualiza os dados do usuário
+            </summary>
+            <param name="entity">Dados do usuário</param>
+            <returns>O resultado da operação</returns>
+        </member>
+        <member name="M:MinimalApi.Application.Services.IAdministradorService.Find(System.Int32)">
+            <summary>
+            Recupera um usuário
+            </summary>
+            <param name="id">Id do usuário</param>
+            <returns>O usuário caso exista</returns>
+        </member>
+        <member name="M:MinimalApi.Application.Services.IAdministradorService.ListAll(MinimalApi.Application.Criteria.AdministradorCriteria)">
+            <summary>
+            Recupera todos os usuários
+            </summary>
+            <param name="criteria">Critérios utilizados na consulta</param>
+            <returns>A listagem contendo a páginação de dados da entidade usuário</returns>
+        </member>
+        <member name="M:MinimalApi.Application.Services.IAdministradorService.RecuperaPerfilUsuario(System.String)">
+            <summary>
+            Recupera o perfil do usuário informado
+            </summary>
+            <param name="email">E-mail do usuário</param>
+            <returns>O perfil do usuário</returns>
+        </member>
+        <member name="M:MinimalApi.Application.Services.IAdministradorService.AlteraSenha(MinimalApi.Application.DTOs.AlteraSenhaDTO)">
+            <summary>
+            Rotina para validação e alteração de senha da entidade
+            </summary>
+            <param name="entity">Dados para consulta e alteração da senha</param>
+            <returns>Resultado da operação</returns>
+        </member>
+        <member name="T:MinimalApi.Application.Services.Impl.AdministradorService">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Services.Impl.AdministradorService.#ctor(MinimalApi.Domain.Repositories.IAdministradorRepository,AutoMapper.IMapper,MinimalApi.Domain.Helpers.ApplicationRoutines)">
+            <summary>
+            Método construtor da classe
+            </summary>
+            <param name="repository">Contém as rotinas de manipulação de dados do usuário</param>
+            <param name="mapper">Contém rotinas para o mapeamento da entidade usuário</param>
+            <param name="routines">Rotinas de uso geral no sistema</param>
+        </member>
+        <member name="M:MinimalApi.Application.Services.Impl.AdministradorService.Dispose(System.Boolean)">
+            <summary>
+            Método destrutor da classe
+            </summary>
+            <param name="disposing">Executa rotinas adicionais</param>
+        </member>
+        <member name="M:MinimalApi.Application.Services.Impl.AdministradorService.Delete(System.Int32)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Services.Impl.AdministradorService.Dispose">
+            <summary>
+            Método destrutor da classe
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Services.Impl.AdministradorService.Finalize">
+            <summary>
+            Método destrutor da classe
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Services.Impl.AdministradorService.Find(System.Int32)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Services.Impl.AdministradorService.Insert(MinimalApi.Application.DTOs.CreateAdministradorDTO)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Services.Impl.AdministradorService.ListAll(MinimalApi.Application.Criteria.AdministradorCriteria)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Services.Impl.AdministradorService.Update(MinimalApi.Application.DTOs.AdministradorDTO)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Services.Impl.AdministradorService.Login(MinimalApi.Application.DTOs.LoginDTO)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Services.Impl.AdministradorService.RecuperaPerfilUsuario(System.String)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Services.Impl.AdministradorService.AlteraSenha(MinimalApi.Application.DTOs.AlteraSenhaDTO)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="T:MinimalApi.Application.Services.Impl.VeiculoService">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Services.Impl.VeiculoService.#ctor(MinimalApi.Domain.Repositories.IVeiculoRepository,AutoMapper.IMapper,MinimalApi.Domain.Helpers.ApplicationRoutines)">
+            <summary>
+            Método construtor da classe
+            </summary>
+            <param name="repository">Contém as rotinas de manipulação de dados do veículo</param>
+            <param name="mapper">Contém rotinas para o mapeamento da entidade veículo</param>
+            <param name="routines">Rotinas de uso geral no sistema</param>
+        </member>
+        <member name="M:MinimalApi.Application.Services.Impl.VeiculoService.Dispose(System.Boolean)">
+            <summary>
+            Método destrutor da classe
+            </summary>
+            <param name="disposing">Executa rotinas adicionais</param>
+        </member>
+        <member name="M:MinimalApi.Application.Services.Impl.VeiculoService.Delete(System.Int32)">
+            <summary>
+            Exclui uma ou mais entidades
+            </summary>
+            <param name="id">Código de identificação  da entidade</param>
+            <returns>O status da operação</returns>
+        </member>
+        <member name="M:MinimalApi.Application.Services.Impl.VeiculoService.Dispose">
+            <summary>
+            Método destrutor da classe
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Services.Impl.VeiculoService.Finalize">
+            <summary>
+            Método destrutor da classe
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Services.Impl.VeiculoService.Find(System.Int32)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Services.Impl.VeiculoService.Insert(MinimalApi.Application.DTOs.CreateVeiculoDTO)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Services.Impl.VeiculoService.ListAll(MinimalApi.Application.Criteria.VeiculoCriteria)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Services.Impl.VeiculoService.Update(MinimalApi.Application.DTOs.VeiculoDTO)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="T:MinimalApi.Application.Services.IVeiculoService">
+            <summary>
+            Contem os métodos para o acesso as rotinas de manipulação de dados da entidade veículo
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Services.IVeiculoService.ListAll(MinimalApi.Application.Criteria.VeiculoCriteria)">
+            <summary>
+            Recupera todos os veículos
+            </summary>
+            <param name="criteria">Critérios utilizados na consulta</param>
+            <returns>Listagem contendo todos os dados de paginação da entidade veículo</returns>
+        </member>
+        <member name="M:MinimalApi.Application.Services.IVeiculoService.Find(System.Int32)">
+            <summary>
+            Recupera um veículo
+            </summary>
+            <param name="id">Id do veículo</param>
+            <returns>O veículo caso exista</returns>
+        </member>
+        <member name="M:MinimalApi.Application.Services.IVeiculoService.Insert(MinimalApi.Application.DTOs.CreateVeiculoDTO)">
+            <summary>
+            Cadastra um novo veículo
+            </summary>
+            <param name="entity">Dados do veículo</param>
+            <returns>O id do veículo cadastrado</returns>
+        </member>
+        <member name="M:MinimalApi.Application.Services.IVeiculoService.Update(MinimalApi.Application.DTOs.VeiculoDTO)">
+            <summary>
+            Altera um veículo
+            </summary>
+            <param name="entity">Dados do veículo</param>
+            <returns>O resultado da operação</returns>
+        </member>
+        <member name="M:MinimalApi.Application.Services.IVeiculoService.Delete(System.Int32)">
+            <summary>
+            Exclui um veículo
+            </summary>
+            <param name="id">Id do veículo</param>
+            <returns>O resultado da operação</returns>
+        </member>
+        <member name="T:MinimalApi.Application.Validations.AlteraSenhaValidation">
+            <summary>
+            Classe responsável pela validação de alteração de senha de um usuário
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Validations.AlteraSenhaValidation.#ctor(MinimalApi.Domain.Helpers.ApplicationRoutines)">
+            <summary>
+            Método construtor da classe
+            </summary>
+            <param name="routines">Rotinas de uso geral no sistema</param>
+        </member>
+        <member name="T:MinimalApi.Application.Validations.CreateAdministradorValidation">
+            <summary>
+            Classe responsável pela validação de uma inclusão na entidade usuário
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Validations.CreateAdministradorValidation.#ctor(MinimalApi.Domain.Helpers.ApplicationRoutines)">
+            <summary>
+            Método construtor da classe
+            </summary>
+            <param name="routines">Rotinas de uso geral no sistema</param>
+        </member>
+        <member name="M:MinimalApi.Application.Validations.CreateAdministradorValidation.IsValidPerfil(System.String)">
+            <summary>
+            Rotina para validação do campo status
+            </summary>
+            <param name="perfil">Valor a ser validado</param>
+            <returns></returns>
+        </member>
+        <member name="T:MinimalApi.Application.Validations.LoginValidation">
+            <summary>
+            Classe responsável pela validação de login de um usuário
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Validations.LoginValidation.#ctor">
+            <summary>
+            Método construtor da classe
+            </summary>
+        </member>
+        <member name="T:MinimalApi.Application.Validations.UpdateAdministradorValidation">
+            <summary>
+            Classe responsável pela validação de uma alteração na entidade usuário
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Validations.UpdateAdministradorValidation.#ctor(MinimalApi.Domain.Helpers.ApplicationRoutines)">
+            <summary>
+            Método construtor da classe
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Validations.UpdateAdministradorValidation.IsValidId(System.Nullable{System.Int32})">
+            <summary>
+            Rotina para validação do campo id
+            </summary>
+            <param name="id">Valor a ser validado</param>
+            <returns>Resultado da operação</returns>
+        </member>
+        <member name="M:MinimalApi.Application.Validations.UpdateAdministradorValidation.IsValidPerfil(System.String)">
+            <summary>
+            Rotina para validação do campo status
+            </summary>
+            <param name="perfil">Valor a ser validado</param>
+            <returns></returns>
+        </member>
+        <member name="T:MinimalApi.Application.Validations.CreateVeiculoValidation">
+            <summary>
+            Classe responsável pela validação de uma inclusão na entidade veículo
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Validations.CreateVeiculoValidation.#ctor">
+            <summary>
+            Método construtor da classe
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Validations.CreateVeiculoValidation.IsValidAno(System.Nullable{System.Int32})">
+            <summary>
+            Rotina para validação do campo data
+            </summary>
+            <param name="ano">Valor a ser validado</param>
+            <returns>Resultado da operação</returns>
+        </member>
+        <member name="T:MinimalApi.Application.Validations.VeiculoValidation">
+            <summary>
+            Classe responsável pela validação de uma alteração na entidade veículo
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Validations.VeiculoValidation.#ctor">
+            <summary>
+            Método construtor da classe
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Application.Validations.VeiculoValidation.IsValidId(System.Nullable{System.Int32})">
+            <summary>
+            Rotina para validação do campo id
+            </summary>
+            <param name="id">Valor a ser validado</param>
+            <returns>Resultado da operação</returns>
+        </member>
+        <member name="M:MinimalApi.Application.Validations.VeiculoValidation.IsValidAno(System.Nullable{System.Int32})">
+            <summary>
+            Rotina para validação do campo data
+            </summary>
+            <param name="ano">Valor a ser validado</param>
+            <returns>Resultado da operação</returns>
+        </member>
+    </members>
+</doc>

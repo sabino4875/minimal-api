@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MinimalApi.InfraStructure</name>
+    </assembly>
+    <members>
+        <member name="T:MinimalApi.InfraStructure.Configurations.AdministradorConfiguration">
+            <summary>
+            Representa o mapeamento da entidade administrador para uma tabela no banco de dados
+            </summary>
+        </member>
+        <member name="M:MinimalApi.InfraStructure.Configurations.AdministradorConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{MinimalApi.Domain.Entities.Administrador})">
+            <summary>
+            Método que faz o mapeamento da entidade para o banco de dados
+            </summary>
+            <param name="builder">Api contendo métodos e rotinas para o mapeamento da entidade</param>
+        </member>
+        <member name="T:MinimalApi.InfraStructure.Configurations.VeiculoConfiguration">
+            <summary>
+            Representa o mapeamento da entidade veículo para uma tabela no banco de dados
+            </summary>
+        </member>
+        <member name="M:MinimalApi.InfraStructure.Configurations.VeiculoConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{MinimalApi.Domain.Entities.Veiculo})">
+            <summary>
+            Método que faz o mapeamento da entidade para o banco de dados
+            </summary>
+            <param name="builder">Api contendo métodos e rotinas para o mapeamento da entidade</param>
+        </member>
+        <member name="T:MinimalApi.InfraStructure.Data.SeedData">
+            <summary>
+            Dados iniciais de uso para o sistema
+            </summary>
+        </member>
+        <member name="M:MinimalApi.InfraStructure.Data.SeedData.ImportData(System.IServiceProvider)">
+            <summary>
+            Importa os dados iniciais utilizados pelas tabelas
+            </summary>
+            <param name="serviceProvider">Responsável pela recuperação de serviços registrados no sistema</param>
+            <returns>Execução do processo</returns>
+        </member>
+        <member name="M:MinimalApi.InfraStructure.Data.SeedData.SeedDB(MinimalApi.InfraStructure.Db.DbContexto,MinimalApi.Domain.Helpers.ApplicationRoutines)">
+            <summary>
+            Rotina contendo os dados que serão importados
+            </summary>
+            <param name="context">Contexto para acesso ao banco de dados</param>
+            <param name="routines">Rotinas de uso geral no sistema</param>
+        </member>
+        <member name="T:MinimalApi.InfraStructure.Db.DbContexto">
+            <summary>
+            Classe que representa uma conexão com o banco de dados
+            </summary>
+            <param name="options">Opções de inicialização do banco de dados</param>
+        </member>
+        <member name="M:MinimalApi.InfraStructure.Db.DbContexto.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{MinimalApi.InfraStructure.Db.DbContexto})">
+            <summary>
+            Classe que representa uma conexão com o banco de dados
+            </summary>
+            <param name="options">Opções de inicialização do banco de dados</param>
+        </member>
+        <member name="P:MinimalApi.InfraStructure.Db.DbContexto.Administradores">
+            <summary>
+            Representa o acesso aos dados da tabela de usuários
+            </summary>
+        </member>
+        <member name="P:MinimalApi.InfraStructure.Db.DbContexto.Veiculos">
+            <summary>
+            Representa o acesso aos dados da tabela de veículos
+            </summary>
+        </member>
+        <member name="M:MinimalApi.InfraStructure.Db.DbContexto.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Método utilizado nas configurações de mapeamento das tabelas do banco de dados para as entidades
+            </summary>
+            <param name="modelBuilder">Api para configuração de entidades e o seu mapeamento com o banco de dados</param>
+        </member>
+        <member name="T:MinimalApi.InfraStructure.Repositories.AdministradorRepository">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="M:MinimalApi.InfraStructure.Repositories.AdministradorRepository.#ctor(MinimalApi.InfraStructure.Db.DbContexto)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="M:MinimalApi.InfraStructure.Repositories.AdministradorRepository.Login(System.String,System.String)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="M:MinimalApi.InfraStructure.Repositories.AdministradorRepository.AlteraSenha(System.String,System.String,System.String)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="T:MinimalApi.InfraStructure.Repositories.Repository`1">
+            <summary>
+            Contrato representando as rotinas para manipulação de dados no sistema
+            </summary>
+            <typeparam name="TEntity">Entidade</typeparam>
+        </member>
+        <member name="P:MinimalApi.InfraStructure.Repositories.Repository`1.Context">
+            <summary>
+            Fornece o acesso e manipulação de dados em um banco de dados pré-configurado
+            </summary>
+        </member>
+        <member name="P:MinimalApi.InfraStructure.Repositories.Repository`1.Logger">
+            <summary>
+            Fornece o acesso as rotinas para gravação de mensagens de log
+            </summary>
+        </member>
+        <member name="P:MinimalApi.InfraStructure.Repositories.Repository`1.DbSet">
+            <summary>
+            Fornece o acesso e rotinas para manipulação de dados da entidade
+            </summary>
+        </member>
+        <member name="M:MinimalApi.InfraStructure.Repositories.Repository`1.#ctor(MinimalApi.InfraStructure.Db.DbContexto)">
+            <summary>
+            Método construtor da classe
+            </summary>
+            <param name="context">Classe para acesso e manipulação de dados em um banco de dados pré-configurado</param>
+        </member>
+        <member name="M:MinimalApi.InfraStructure.Repositories.Repository`1.Dispose(System.Boolean)">
+            <summary>
+            Método destrutor da classe
+            </summary>
+            <param name="disposing">Executa rotinas adicionais</param>
+        </member>
+        <member name="M:MinimalApi.InfraStructure.Repositories.Repository`1.Count(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Contagem de registros
+            </summary>
+            <param name="criteria">Critério utilizado na contagem</param>
+            <returns>A contagem</returns>
+        </member>
+        <member name="M:MinimalApi.InfraStructure.Repositories.Repository`1.Delete(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Exclui uma ou mais entidades
+            </summary>
+            <param name="criteria">Critério utilizado na exclusão</param>
+            <returns>O status da operação</returns>
+        </member>
+        <member name="M:MinimalApi.InfraStructure.Repositories.Repository`1.Dispose">
+            <summary>
+            Método destrutor da classe
+            </summary>
+        </member>
+        <member name="M:MinimalApi.InfraStructure.Repositories.Repository`1.Finalize">
+            <summary>
+            Método destrutor da classe
+            </summary>
+        </member>
+        <member name="M:MinimalApi.InfraStructure.Repositories.Repository`1.Find(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Procura por uma entidade em específico 
+            </summary>
+            <param name="criteria">Critério utilizado na consulta</param>
+            <returns>A entidade caso exista</returns>
+        </member>
+        <member name="M:MinimalApi.InfraStructure.Repositories.Repository`1.Insert(`0)">
+            <summary>
+            Grava os dados de uma nova entidade
+            </summary>
+            <param name="entity">Dados da entidade</param>
+            <returns>O status da operação</returns>
+        </member>
+        <member name="M:MinimalApi.InfraStructure.Repositories.Repository`1.ListAll(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Int32,System.Int32)">
+            <summary>
+            Lista todas as entidade
+            </summary>
+            <param name="criteria">Critério utilizado na consulta</param>
+            <param name="limit">Quantidade de registros a serem retornados</param>
+            <param name="offset">Registros a serem pulados</param>
+            <returns>A listagem de entidades</returns>
+        </member>
+        <member name="M:MinimalApi.InfraStructure.Repositories.Repository`1.Update(`0)">
+            <summary>
+            Atualiza os dados de uma entidade
+            </summary>
+            <param name="entity">Dados da entidade</param>
+            <returns>O status da operação</returns>
+        </member>
+        <member name="T:MinimalApi.InfraStructure.Repositories.VeiculoRepository">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="M:MinimalApi.InfraStructure.Repositories.VeiculoRepository.#ctor(MinimalApi.InfraStructure.Db.DbContexto)">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+    </members>
+</doc>

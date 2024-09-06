@@ -1,0 +1,328 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MinimalApi.Domain</name>
+    </assembly>
+    <members>
+        <member name="T:MinimalApi.Domain.Entities.Administrador">
+            <summary>
+            Representa a abstração de um usuário do sistema
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Domain.Entities.Administrador.Nome">
+            <summary>
+            Nome do usuário
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Domain.Entities.Administrador.Email">
+            <summary>
+            Email do usuário
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Domain.Entities.Administrador.Senha">
+            <summary>
+            Senha do usuário
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Domain.Entities.Administrador.Perfil">
+            <summary>
+            Nível de acesso do usuário
+            </summary>
+        </member>
+        <member name="T:MinimalApi.Domain.Entities.EntityBase">
+            <summary>
+            Entidade base utilizada no mapeamento das demais entidades do projeto
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Domain.Entities.EntityBase.Id">
+            <summary>
+            Código de identificação da entidade
+            </summary>
+        </member>
+        <member name="T:MinimalApi.Domain.Entities.Veiculo">
+            <summary>
+            Representa a abstração de um veículo
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Domain.Entities.Veiculo.Modelo">
+            <summary>
+            Modelo do veículo
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Domain.Entities.Veiculo.Marca">
+            <summary>
+            Marca do veículo
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Domain.Entities.Veiculo.Ano">
+            <summary>
+            Ano de fabricação do veículo
+            </summary>
+        </member>
+        <member name="T:MinimalApi.Domain.Enuns.PerfilUsuario">
+            <summary>
+            Perfil do usuário
+            </summary>
+        </member>
+        <member name="F:MinimalApi.Domain.Enuns.PerfilUsuario.Admin">
+            <summary>
+            Administrador do sistema
+            </summary>
+        </member>
+        <member name="F:MinimalApi.Domain.Enuns.PerfilUsuario.Editor">
+            <summary>
+            Permite a maioria das ações no sistema
+            </summary>
+        </member>
+        <member name="F:MinimalApi.Domain.Enuns.PerfilUsuario.Visualizar">
+            <summary>
+            Permite apenas a visualização dos dados
+            </summary>
+        </member>
+        <member name="F:MinimalApi.Domain.Enuns.PerfilUsuario.Invalido">
+            <summary>
+            Perfil informado inválido
+            </summary>
+        </member>
+        <member name="T:MinimalApi.Domain.Extensions.EnumExtension">
+            <summary>
+            Métodos de extensão da classe Enum
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Domain.Extensions.EnumExtension.GetDescription(System.Enum)">
+            <summary>
+            Recupera a descrição do valor selecionado na enum
+            </summary>
+            <param name="value">Valor selecionado na enum</param>
+            <returns>A descrição do valor selecionado na enum</returns>
+        </member>
+        <member name="T:MinimalApi.Domain.Extensions.StringExtension">
+            <summary>
+            Métodos de extensão da classe String
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Domain.Extensions.StringExtension.ParseEnum``1(System.String,``0)">
+            <summary>
+            Recupera a descrição do valor selecionado na enum
+            </summary>
+            <typeparam name="T">Enum que será validado</typeparam>
+            <param name="value">Descrição do enum</param>
+            <param name="defaultValue">Valor padrão para o caso de algum error</param>
+            <returns>Caso correto, retorna o enum referente ao valor informado, caso contrário, o valor padrão.</returns>
+        </member>
+        <member name="T:MinimalApi.Domain.Helpers.ApplicationRoutines">
+            <summary>
+            Classe contendo rotinas de uso geral utilizadas no sistema
+            </summary>
+        </member>
+        <member name="T:MinimalApi.Domain.Helpers.ApplicationRoutinesExtension">
+            <summary>
+            Métodos de extensão da entidade ApplicationRoutines
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Domain.Helpers.ApplicationRoutinesExtension.ContainsValue(MinimalApi.Domain.Helpers.ApplicationRoutines,System.String)">
+            <summary>
+            Verifica se um campo String contem algum valor informado.
+            </summary>
+            <param name="value">Valor a ser verificado</param>
+            <param name="routines">Entidade base</param>
+            <returns>O resultado da operação</returns>
+        </member>
+        <member name="M:MinimalApi.Domain.Helpers.ApplicationRoutinesExtension.FromBase64String(MinimalApi.Domain.Helpers.ApplicationRoutines,System.String)">
+            <summary>
+            Convert um hash no formato base 64 para String
+            </summary>
+            <param name="value">Hash a ser convertido para String</param>
+            <param name="routines">Entidade base</param>
+            <returns>O valor correspondente ao hash no formato baser64</returns>
+        </member>
+        <member name="M:MinimalApi.Domain.Helpers.ApplicationRoutinesExtension.ToBase64String(MinimalApi.Domain.Helpers.ApplicationRoutines,System.String)">
+            <summary>
+            Gera um hash no formato base 64
+            </summary>
+            <param name="value">Valor a ser utilizado na geração do hash</param>
+            <param name="routines">Entidade base</param>
+            <returns>O hash do valor no formato base64</returns>
+        </member>
+        <member name="M:MinimalApi.Domain.Helpers.ApplicationRoutinesExtension.ToSHA256Hash(MinimalApi.Domain.Helpers.ApplicationRoutines,System.String)">
+            <summary>
+            Cria um hash de 256 bits
+            </summary>
+            <param name="value">Valor a ser utilizado na geração do hash</param>
+            <param name="routines">Entidade base</param>
+            <returns>O hash do valor no formato sha256</returns>
+        </member>
+        <member name="T:MinimalApi.Domain.Repositories.IAdministradorRepository">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Domain.Repositories.IAdministradorRepository.Login(System.String,System.String)">
+            <summary>
+            Rotina para acesso ao sistema
+            </summary>
+            <param name="email">E-mail do usuário</param>
+            <param name="senha">Senha do usuário</param>
+            <returns>Resultado da operação</returns>
+        </member>
+        <member name="M:MinimalApi.Domain.Repositories.IAdministradorRepository.AlteraSenha(System.String,System.String,System.String)">
+            <summary>
+            Rotina para validação e alteração de senha do usuário
+            </summary>
+            <param name="email">E-mail do usuário</param>
+            <param name="senha">Senha do usuário</param>
+            <param name="codigo">Código de validação</param>
+            <returns>Resultado da operação</returns>
+        </member>
+        <member name="T:MinimalApi.Domain.Repositories.IRepository`1">
+            <summary>
+            Api contendo os métodos para manipulação de dados de uma entidade no sistema
+            </summary>
+            <typeparam name="TEntity">Entidade</typeparam>
+        </member>
+        <member name="M:MinimalApi.Domain.Repositories.IRepository`1.Insert(`0)">
+            <summary>
+            Grava os dados de uma nova entidade
+            </summary>
+            <param name="entity">Dados da entidade</param>
+            <returns>O status da operação</returns>
+        </member>
+        <member name="M:MinimalApi.Domain.Repositories.IRepository`1.Update(`0)">
+            <summary>
+            Atualiza os dados de uma entidade
+            </summary>
+            <param name="entity">Dados da entidade</param>
+            <returns>O status da operação</returns>
+        </member>
+        <member name="M:MinimalApi.Domain.Repositories.IRepository`1.Delete(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Exclui uma ou mais entidades
+            </summary>
+            <param name="criteria">Critério utilizado na exclusão</param>
+            <returns>O status da operação</returns>
+        </member>
+        <member name="M:MinimalApi.Domain.Repositories.IRepository`1.Find(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Procura por uma entidade em específico 
+            </summary>
+            <param name="criteria">Critério utilizado na consulta</param>
+            <returns>A entidade caso exista</returns>
+        </member>
+        <member name="M:MinimalApi.Domain.Repositories.IRepository`1.ListAll(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Int32,System.Int32)">
+            <summary>
+            Lista todas as entidade
+            </summary>
+            <param name="criteria">Critério utilizado na consulta</param>
+            <param name="limit">Quantidade de registros a serem retornados</param>
+            <param name="offset">Registros a serem pulados</param>
+            <returns>A listagem de entidades</returns>
+        </member>
+        <member name="M:MinimalApi.Domain.Repositories.IRepository`1.Count(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Contagem de registros
+            </summary>
+            <param name="criteria">Critério utilizado na contagem</param>
+            <returns>A contagem</returns>
+        </member>
+        <member name="T:MinimalApi.Domain.Repositories.IVeiculoRepository">
+            <summary>
+            <inheritdoc/>
+            </summary>
+        </member>
+        <member name="T:MinimalApi.Domain.Settings.ApplicationSettings">
+            <summary>
+            Classe que representa as configurações do sistema
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Domain.Settings.ApplicationSettings.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Método construtor da classe
+            </summary>
+            <param name="configuration">Representa um conjunto de valores chave/valor para configurações do sistema</param>
+        </member>
+        <member name="P:MinimalApi.Domain.Settings.ApplicationSettings.DatabaseSettings">
+            <summary>
+            Configurações para acesso ao banco de dados
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Domain.Settings.ApplicationSettings.JwtSettings">
+            <summary>
+            Configurações para configuração, criação, validação e uso de tokens
+            </summary>
+        </member>
+        <member name="T:MinimalApi.Domain.Settings.DatabaseItemSettings">
+            <summary>
+            Classe que representa as configurações de acesso a um banco de dados
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Domain.Settings.DatabaseItemSettings.#ctor(System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            Método construtor da classe
+            </summary>
+            <param name="hostName">Servidor</param>
+            <param name="databaseName">banco de dados</param>
+            <param name="userName">usuário</param>
+            <param name="password">senha</param>
+            <param name="port">porta</param>
+        </member>
+        <member name="P:MinimalApi.Domain.Settings.DatabaseItemSettings.HostName">
+            <summary>
+            servidor
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Domain.Settings.DatabaseItemSettings.DatabaseName">
+            <summary>
+            Banco de dados
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Domain.Settings.DatabaseItemSettings.UserName">
+            <summary>
+            Usuário
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Domain.Settings.DatabaseItemSettings.Password">
+            <summary>
+            Senha
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Domain.Settings.DatabaseItemSettings.Port">
+            <summary>
+            Porta
+            </summary>
+        </member>
+        <member name="T:MinimalApi.Domain.Settings.JwtItemSettings">
+            <summary>
+            Classe que representa as configurações de um token
+            </summary>
+        </member>
+        <member name="M:MinimalApi.Domain.Settings.JwtItemSettings.#ctor(System.String,System.String,System.String,System.Int32)">
+            <summary>
+            Método construtor da classe
+            </summary>
+            <param name="issuer">Uma sequência de caracteres que identifica quem emitiu o token</param>
+            <param name="audience">Uma sequência ou matriz de sequências que identifica os destinatários aos quais o token se destina</param>
+            <param name="secret">Chave utilizada na proteção e validação do token</param>
+            <param name="seconds">Duração do token</param>
+        </member>
+        <member name="P:MinimalApi.Domain.Settings.JwtItemSettings.Issuer">
+            <summary>
+            Uma sequência de caracteres que identifica quem emitiu o token
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Domain.Settings.JwtItemSettings.Audience">
+            <summary>
+            Uma sequência ou matriz de sequências que identifica os destinatários aos quais o token se destina
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Domain.Settings.JwtItemSettings.Secret">
+            <summary>
+            Chave utilizada na proteção e validação do token
+            </summary>
+        </member>
+        <member name="P:MinimalApi.Domain.Settings.JwtItemSettings.Seconds">
+            <summary>
+            Duração do token
+            </summary>
+        </member>
+    </members>
+</doc>
