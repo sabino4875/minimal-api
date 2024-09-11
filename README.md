@@ -1,6 +1,7 @@
 # Minimal API
 
-Este é um fork do projeto do bootcamp XP Inc.
+# Objetivo: 
+Este é um fork do projeto do bootcamp XP Inc, contendo o projeto com a implementação de uma api mínima, e um projeto contendo os testes da api.
 
 ## Estrutura do Projeto
 
@@ -117,3 +118,50 @@ Sinta-se à vontade para fazer um fork do projeto e enviar pull requests.
 [Termos de uso](https://app.dio.me/terms/)
 
 ### Criado utilizando inteligência artificial e revisado por humano.
+
+# Código de Conduta
+
+## Introdução
+
+Este Código de Conduta estabelece as expectativas de comportamento para todos os colaboradores, parceiros e stakeholders envolvidos com nossa organização. Nosso objetivo é promover um ambiente de trabalho respeitoso, inclusivo e profissional.
+
+## Valores e Princípios
+
+- **Integridade**: Agir com honestidade e transparência em todas as interações.
+- **Respeito**: Tratar todos com dignidade e respeito, independentemente de suas diferenças.
+- **Responsabilidade**: Assumir a responsabilidade por nossas ações e decisões.
+- **Excelência**: Buscar a excelência em todas as nossas atividades.
+
+## Comportamento Esperado
+
+- **Profissionalismo**: Manter uma postura profissional em todas as situações.
+- **Colaboração**: Trabalhar de forma colaborativa e apoiar os colegas.
+- **Confidencialidade**: Proteger informações confidenciais e sensíveis.
+- **Cumprimento de Prazos**: Cumprir prazos e compromissos acordados.
+
+## Conduta Inaceitável
+
+- **Discriminação**: Não toleramos qualquer forma de discriminação ou assédio.
+- **Conflitos de Interesse**: Evitar situações que possam gerar conflitos de interesse.
+- **Uso Indevido de Recursos**: Não utilizar recursos da organização para fins pessoais.
+- **Comportamento Antiético**: Qualquer comportamento que viole nossos valores e princípios.
+
+## Conformidade Legal
+
+Todos os colaboradores devem cumprir as leis e regulamentações aplicáveis, bem como as políticas internas da organização.
+
+## Denúncias e Consequências
+
+Qualquer violação deste Código de Conduta deve ser reportada imediatamente. A organização investigará todas as denúncias e tomará as medidas apropriadas, que podem incluir ações disciplinares.
+
+## Revisão e Atualização
+
+Este Código de Conduta será revisado periodicamente para garantir que continue relevante e eficaz.
+
+## Contato
+
+Para dúvidas ou mais informações sobre este Código de Conduta, entre em contato com o departamento de Recursos Humanos.
+
+---
+
+**Última atualização:** [11/09/2024]
