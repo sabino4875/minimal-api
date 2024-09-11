@@ -1,46 +1,193 @@
-using MinimalApi.Dominio.Entidades;
-using MinimalApi.DTOs;
-using MinimalApi.Infraestrutura.Db;
-using MinimalApi.Dominio.Interfaces;
-
-namespace MinimalApi.Dominio.Servicos;
-
-public class AdministradorServico : IAdministradorServico
+namespace Minimal.Api.Dominio.Servicos
 {
-    private readonly DbContexto _contexto;
-    public AdministradorServico(DbContexto contexto)
+    using Minimal.Api.Dominio.Entidades;
+    using Minimal.Api.Infraestrutura.Db;
+    using Minimal.Api.Dominio.Interfaces;
+    using System.Linq;
+    using System;
+    using Minimal.Api.Dominio.Enuns;
+    using Minimal.Api.Dominio.DTOs;
+    using AutoMapper;
+    using Minimal.Api.Dominio.ModelViews;
+    using Minimal.Api.Dominio.Filter;
+    using Microsoft.EntityFrameworkCore;
+    using System.Globalization;
+    using Minimal.Api.Dominio.Helpers;
+    using Serilog;
+
+    public class AdministradorServico : IAdministradorServico
     {
-        _contexto = contexto;
-    }
+        private readonly DbContexto _contexto;
+        private readonly IMapper _mapper;
+        private readonly ApplicationRoutines _routines;
+        private readonly ILogger _logger;
 
-    public Administrador? BuscaPorId(int id)
-    {
-        return _contexto.Administradores.Where(v => v.Id == id).FirstOrDefault();
-    }
+        public AdministradorServico(DbContexto contexto, IMapper mapper, ApplicationRoutines routines)
+        {
+            ArgumentNullException.ThrowIfNull(contexto);
+            ArgumentNullException.ThrowIfNull(mapper);
+            ArgumentNullException.ThrowIfNull(routines);
 
-    public Administrador Incluir(Administrador administrador)
-    {
-        _contexto.Administradores.Add(administrador);
-        _contexto.SaveChanges();
+            _contexto = contexto;
+            _mapper = mapper;
+            _routines = routines;
+            _logger = Log.ForContext<AdministradorServico>();
+        }
 
-        return administrador;
-    }
+        public Boolean AlterarDadosCadastrais(AdministradorModelView administrador)
+        {
+            ArgumentNullException.ThrowIfNull(administrador);
+            try
+            {
+                var exists = _contexto.Administradores.Any(e => e.Id == administrador.Id);
+                if (exists)
+                {
+                    var data = _mapper.Map<Administrador>(administrador);
+                    _contexto.Administradores.Update(data);
+                    _contexto.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+            catch (ApplicationException ex)
+            {
+                _logger.Error(ex, "Houve um erro ao tentar atualizar o registro.");
+                throw;
+            }
+        }
 
-    public Administrador? Login(LoginDTO loginDTO)
-    {
-        var adm = _contexto.Administradores.Where(a => a.Email == loginDTO.Email && a.Senha == loginDTO.Senha).FirstOrDefault();
-        return adm;
-    }
+        public Boolean AlteraSenha(String email, String senha, String codigo)
+        {
+            ArgumentNullException.ThrowIfNull(email);
+            ArgumentNullException.ThrowIfNull(senha);
+            ArgumentNullException.ThrowIfNull(codigo);
 
-    public List<Administrador> Todos(int? pagina)
-    {
-        var query = _contexto.Administradores.AsQueryable();
+            try
+            {
+                var data = _contexto.Administradores.Where(e => e.Email == email).FirstOrDefault();
+                if (data != null)
+                {
+                    data.Senha = senha;
+                    _contexto.Administradores.Update(data);
+                    _contexto.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+            catch (ApplicationException ex)
+            {
+                _logger.Error(ex, "Houve um erro ao tentar alterar a senha do usuário.");
+                throw;
+            }
+        }
 
-        int itensPorPagina = 10;
+        public AdministradorModelView BuscaPorId(Int32 id)
+        {
+            ArgumentNullException.ThrowIfNull(id);
 
-        if(pagina != null)
-            query = query.Skip(((int)pagina - 1) * itensPorPagina).Take(itensPorPagina);
+            try
+            {
+                var data = _contexto.Administradores.Where(v => v.Id == id).FirstOrDefault();
+                if (data != null)
+                {
+                    var result = _mapper.Map<AdministradorModelView>(data);
+                    return result;
+                }
+                return null;
+            }
+            catch (ApplicationException ex)
+            {
+                _logger.Error(ex, "Houve um erro ao tentar localizar o registro.");
+                throw;
+            }
+        }
 
-        return query.ToList();
+        public Int32 Incluir(AdministradorDTO administrador)
+        {
+            ArgumentNullException.ThrowIfNull(administrador);
+
+            try
+            {
+                var data = _mapper.Map<Administrador>(administrador);
+                _contexto.Administradores.Add(data);
+                _contexto.SaveChanges();
+                return data.Id;
+            }
+            catch (ApplicationException ex)
+            {
+                _logger.Error(ex, "Houve um erro ao tentar incluir o registro.");
+                throw;
+            }
+        }
+
+        public Boolean Login(String email, String password)
+        {
+            ArgumentNullException.ThrowIfNull(email);
+            ArgumentNullException.ThrowIfNull(password);
+
+            try
+            {
+                var adm = _contexto.Administradores.Where(a => a.Email == email && a.Senha == password).FirstOrDefault();
+                return adm != null;
+            }
+            catch (ApplicationException ex)
+            {
+                _logger.Error(ex, "Houve um erro ao tentar efetuar o login.");
+                throw;
+            }
+        }
+
+        public PerfilUsuario RecuperaPerfilUsuario(String email)
+        {
+            ArgumentNullException.ThrowIfNull(email);
+
+            try
+            {
+                var result = PerfilUsuario.Invalido;
+                var data = _contexto.Administradores.Where(e => e.Email == email).FirstOrDefault();
+                if (data != null)
+                {
+                    result = data.Perfil;
+                }
+                return result;
+            }
+            catch (ApplicationException ex)
+            {
+                _logger.Error(ex, "Houve um erro ao tentar recuperar o perfil do usuário.");
+                throw;
+            }
+        }
+
+        public PagedResultDTO<AdministradorModelView> Todos(CriteriaFilter criteria)
+        {
+            ArgumentNullException.ThrowIfNull(criteria);
+
+            try
+            {
+                var query = _contexto.Administradores.AsQueryable();
+                var itensPorPagina = 10;
+                var offset = criteria.Pagina.HasValue ? criteria.Pagina.Value - 1 : 0;
+                if (offset < 0) offset = 0;
+                offset *= itensPorPagina;
+
+                if (_routines.ContainsValue(criteria.Nome))
+                {
+                    query = query.Where(e => EF.Functions.Like(e.Nome, $"%{criteria.Nome}%"));
+                }
+
+                var count = query.Count();
+                query = query.Skip(offset).Take(itensPorPagina);
+
+                var resultQuery = _mapper.Map<AdministradorModelView[]>(query.ToArray());
+                var result = new PagedResultDTO<AdministradorModelView>(count, itensPorPagina, criteria.Pagina ?? 1, resultQuery);
+
+                return result;
+            }
+            catch (ApplicationException ex)
+            {
+                _logger.Error(ex, "Houve um erro ao tentar listar os usuários.");
+                throw;
+            }
+        }
     }
 }

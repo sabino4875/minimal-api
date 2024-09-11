@@ -1,20 +1,34 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-
-    <IsPackable>false</IsPackable>
-    <IsTestProject>true</IsTestProject>
+	  <TargetFramework>net8.0</TargetFramework>
+	  <ImplicitUsings>disable</ImplicitUsings>
+	  <Nullable>disable</Nullable>
+	  <PublishRelease>true</PublishRelease>
+	  <PackageId>Minimal.Api.Test</PackageId>
+	  <RootNamespace>Minimal.Api.Test</RootNamespace>
+	  <Version>1.0.1</Version>
+	  <Authors>Danilo Aparecido</Authors>
+	  <Company>Dio</Company>
+	  <GenerateDocumentationFile>false</GenerateDocumentationFile>
+	  <DocumentationFile>documentation/test.xml</DocumentationFile>
+	  <AnalysisMode>All</AnalysisMode>
+	  <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+	  
+      <IsPackable>false</IsPackable>
+      <IsTestProject>true</IsTestProject>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="7.0.14" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.1" />
-    <PackageReference Include="MSTest.TestAdapter" Version="2.2.10" />
-    <PackageReference Include="MSTest.TestFramework" Version="2.2.10" />
-    <PackageReference Include="coverlet.collector" Version="3.2.0" />
+    <PackageReference Include="Faker.Net" Version="2.0.163" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.8" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+    <PackageReference Include="MSTest.TestAdapter" Version="3.5.2" />
+    <PackageReference Include="MSTest.TestFramework" Version="3.5.2" />
+    <PackageReference Include="coverlet.collector" Version="6.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>

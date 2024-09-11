@@ -1,10 +1,12 @@
 
-using MinimalApi.Dominio.Enuns;
-
-namespace MinimalApi.DTOs;
-public class AdministradorDTO
+namespace Minimal.Api.Dominio.DTOs
 {
-    public string Email { get;set; } = default!;
-    public string Senha { get;set; } = default!;
-    public Perfil? Perfil { get;set; } = default!;
+    using System;
+    public class AdministradorDTO
+    {
+        public String Nome { get; set; } = default!;
+        public String Email { get; set; } = default!;
+        public String Senha { get; set; } = default!;
+        public String Perfil { get; set; } = default!;
+    }
 }

@@ -1,39 +1,60 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc.Testing;
-using MinimalApi.Dominio.Interfaces;
-using Test.Mocks;
-using Microsoft.Extensions.DependencyInjection;
-
-namespace Test.Helpers;
-
-public class Setup
+namespace Minimal.Api.Test.Helpers
 {
-    public const string PORT = "5001";
-    public static TestContext testContext = default!;
-    public static WebApplicationFactory<Startup> http = default!;
-    public static HttpClient client = default!;
+    using FluentValidation;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Mvc.Testing;
+    using Microsoft.Extensions.DependencyInjection;
+    using Minimal.Api.Application.Validation;
+    using Minimal.Api.Dominio.DTOs;
+    using Minimal.Api.Dominio.Interfaces;
+    using Minimal.Api.Dominio.ModelViews;
+    using Minimal.Api.Test.Mocks;
+    using System.Net.Http;
 
-    public static void ClassInit(TestContext testContext)
+    public sealed class Setup
     {
-        Setup.testContext = testContext;
-        Setup.http = new WebApplicationFactory<Startup>();
+        public const string PORT = "5001";
+        private static TestContext _testContext = default!;
+        private static WebApplicationFactory<Program> _http = default!;
+        private static HttpClient _client = default!;
 
-        Setup.http = Setup.http.WithWebHostBuilder(builder =>
+        public static HttpClient MockHttpClient => _client;
+
+        public static void ClassInit(TestContext testContext)
         {
-            builder.UseSetting("https_port", Setup.PORT).UseEnvironment("Testing");
-            
-            builder.ConfigureServices(services =>
+            Setup._testContext = testContext;
+            Setup._http = new WebApplicationFactory<Program>();
+
+            Setup._http = Setup._http.WithWebHostBuilder(builder =>
             {
-                services.AddScoped<IAdministradorServico, AdministradorServicoMock>();
+                builder.
+                //UseSetting("https_port", Setup.PORT).
+                UseEnvironment("Testing");
+
+                builder.UseUrls("https://localhost:7005");
+
+                builder.ConfigureServices(services =>
+                {
+                    services.AddScoped<IAdministradorServico, AdministradorServicoMock>();
+                    services.AddScoped<IVeiculoServico, VeiculoServicoMock>();
+
+                    services.AddScoped<IValidator<VeiculoDTO>, VeiculoDTOValidation>();
+                    services.AddScoped<IValidator<VeiculoModelView>, VeiculoModelViewValidation>();
+
+                    services.AddScoped<IValidator<AdministradorDTO>, AdministradorDTOValidation>();
+                    services.AddScoped<IValidator<AdministradorModelView>, AdministradorModelViewValidation>();
+
+                    services.AddScoped<IValidator<LoginDTO>, LoginValidation>();
+                    services.AddScoped<IValidator<AlteraSenhaDTO>, AlteraSenhaValidation>();
+                });
             });
 
-        });
+            Setup._client = Setup._http.CreateClient();
+        }
 
-        Setup.client = Setup.http.CreateClient();
-    }
-
-    public static void ClassCleanup()
-    {
-        Setup.http.Dispose();
+        public static void ClassCleanup()
+        {
+            Setup._http.Dispose();
+        }
     }
 }

@@ -1,14 +1,15 @@
-
-using MinimalApi.Dominio.Entidades;
-using MinimalApi.DTOs;
-
-namespace MinimalApi.Dominio.Interfaces;
-
-public interface IVeiculoServico
+namespace Minimal.Api.Dominio.Interfaces
 {
-    List<Veiculo> Todos(int? pagina = 1, string? nome = null, string? marca = null);
-    Veiculo? BuscaPorId(int id);
-    void Incluir(Veiculo veiculo);
-    void Atualizar(Veiculo veiculo);
-    void Apagar(Veiculo veiculo);
+    using Minimal.Api.Dominio.DTOs;
+    using Minimal.Api.Dominio.Filter;
+    using Minimal.Api.Dominio.ModelViews;
+    using System;
+    public interface IVeiculoServico
+    {
+        PagedResultDTO<VeiculoModelView> Todos(CriteriaFilter criteria);
+        VeiculoModelView BuscaPorId(Int32 id);
+        Int32 Incluir(VeiculoDTO veiculo);
+        Boolean Atualizar(VeiculoModelView veiculo);
+        Boolean Apagar(Int32 id);
+    }
 }
