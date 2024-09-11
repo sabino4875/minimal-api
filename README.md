@@ -9,6 +9,9 @@ Este é um fork do projeto do bootcamp XP Inc.
 - **minimal-api.sln**: Solução do projeto.
 
 ## Api
+
+Contém uma implementação de uma API mínima, baseada no desafio proposto pela Digital Innovation One.
+
 ### Estrutura do Projeto
 
 - **Application**: Rotinas de validação e lógica de aplicação.
@@ -16,6 +19,7 @@ Este é um fork do projeto do bootcamp XP Inc.
   - **Validation**: Rotinas para validação das entidades de transferência de dados.
 ---
 - **Authentication**: Rotinas de autenticação utilizando o token JWT.
+---
 - **Converters**: Conversores json utilizados no projeto.
 ---
 - **Dominio**: Classes de domínio da aplicação.
@@ -38,16 +42,32 @@ Este é um fork do projeto do bootcamp XP Inc.
   - **InitialData**: Dados iniciais para a aplicação. 
 ---
 - **Middlewares**: Middlewares utilizados na API.
+---
 - **Migrations**: Arquivos de migração do banco de dados.
-- **Properties**: Propriedades do projeto.
+---
+- **Properties**: Propriedades de execução do projeto.
+---
 - **Serialization**: Configurações de serialização.
-- **logs**: Arquivos de log.
 
-## Arquivos Principais
+### Arquivos Principais
 
 - **Program.cs**: Arquivo principal de configuração e inicialização da API.
 - **mininal-api.csproj**: Arquivo de configuração do projeto.
 - **settings.example.json**: Exemplo de arquivo de configuração.
+
+# Test
+
+Contém uma implementação dos testes de uma API mínima, baseada no desafio proposto pela Digital Innovation One.
+
+## Estrutura do Projeto
+- **Domain**: Contém as rotinas de teste do domínio da aplicação.
+- **Helpers**: Contém rotinas auxiliares para os testes.
+- **Mocks**: Contém a implementação dos serviços para acesso a dados.
+- **Requests**: Contém as rotinas de teste para as requisições.
+- **GlobalUsings.cs**: Arquivo de usings globais.
+- **Test.csproj**: Arquivo de configuração do projeto de teste.
+- **settings.example.json**: Arquivo de configuração de exemplo.
+
 
 ## Como Executar
 
@@ -56,6 +76,26 @@ Este é um fork do projeto do bootcamp XP Inc.
    git clone https://github.com/sabino4875/minimal-api.git
 
 2. Abra o projeto no VSCode ou no Visual Studio
+3. Renomeie o arquivo settings.example.json para settings.json em ambos os projetos.
+4. Edite o arquivo e informe os dados de conexão com o banco de dados MySql. No projeto de teste, adicione **_test** no final do nome do banco.
+5. Informe os dados de configuração para geração do token JWT. 
+- Exemplo de configuração
+  ```bash
+  "ConnectionStrings": {
+    "Host": "127.0.0.1",
+    "Database": "minimalApiDb",
+    "UserName": "root",
+    "Password": "@pass!word$",
+    "Port": "3310"
+  },
+  "Jwt": {
+    "Issuer": "https://www.minimal-api.com",
+    "Audience": "urn:minimal-api.api",
+    "Secret": "5DB94C64892FB2B6385C485111F07EDAEDADA57BF3A7D7AC578C122890679DFA740FE9A3480D4F747F93BC9F5A02059E22D9CDEB67A129B31F41791BECA0EB4902A7D610A7641C35EC1F2C3BD24EBBDBAED471C7F3390835D5B13C2E15DEB54F934B0DD241ED117FCA37FEA18D0C6B90C532E7645FDD62405A88D716666AEE9E",
+    "Seconds": 86400
+  } 
+
+
    
 ## Contribuições
 Sinta-se à vontade para fazer um fork do projeto e enviar pull requests.
