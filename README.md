@@ -115,3 +115,5 @@ Sinta-se à vontade para fazer um fork do projeto e enviar pull requests.
 ## Licença
 
 [Termos de uso](https://app.dio.me/terms/)
+
+### Criado utilizando inteligência artificial e revisado por humano.
