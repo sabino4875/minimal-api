@@ -64,6 +64,10 @@ Contém uma implementação dos testes de uma API mínima, baseada no desafio pr
 - **Helpers**: Contém rotinas auxiliares para os testes.
 - **Mocks**: Contém a implementação dos serviços para acesso a dados.
 - **Requests**: Contém as rotinas de teste para as requisições.
+
+
+### Arquivos Principais
+
 - **GlobalUsings.cs**: Arquivo de usings globais.
 - **Test.csproj**: Arquivo de configuração do projeto de teste.
 - **settings.example.json**: Arquivo de configuração de exemplo.
