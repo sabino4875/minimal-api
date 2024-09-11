@@ -1,26 +1,44 @@
-using MinimalApi.Dominio.Entidades;
-
-namespace Test.Domain.Entidades;
-
-[TestClass]
-public class AdministradorTest
+namespace Minimal.Api.Test.Domain.Entidades
 {
-    [TestMethod]
-    public void TestarGetSetPropriedades()
+    using Minimal.Api.Dominio.Entidades;
+    using Minimal.Api.Dominio.Enuns;
+    using Minimal.Api.Dominio.Helpers;
+
+    [TestClass]
+    public class AdministradorTest
     {
-        // Arrange
-        var adm = new Administrador();
+        [TestMethod]
+        public void TestarGetSetPropriedades()
+        {
+            // Arrange
+            var routines = new ApplicationRoutines();
 
-        // Act
-        adm.Id = 1;
-        adm.Email = "teste@teste.com";
-        adm.Senha = "teste";
-        adm.Perfil = "Adm";
+            var id = Faker.RandomNumber.Next(1,100);
+            var nome = Faker.Name.FullName();
+            var email = Faker.Internet.Email();
+            var senha = routines.ToSHA256Hash(Faker.Identification.UkNationalInsuranceNumber());
+            var perfil = PerfilUsuario.Invalido;
+            while(perfil == PerfilUsuario.Invalido)
+            {
+                perfil = Faker.Enum.Random<PerfilUsuario>();
+            }
 
-        // Assert
-        Assert.AreEqual(1, adm.Id);
-        Assert.AreEqual("teste@teste.com", adm.Email);
-        Assert.AreEqual("teste", adm.Senha);
-        Assert.AreEqual("Adm", adm.Perfil);
+            // Act
+            var adm = new Administrador
+            {
+                Id = id,
+                Nome = nome,
+                Email = email,
+                Senha = senha,
+                Perfil = perfil
+            };
+
+            // Assert
+            Assert.AreEqual(id, adm.Id);
+            Assert.AreEqual(nome, adm.Nome);
+            Assert.AreEqual(email, adm.Email);
+            Assert.AreEqual(senha, adm.Senha);
+            Assert.AreEqual(perfil, adm.Perfil);
+        }
     }
 }
