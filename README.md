@@ -117,8 +117,6 @@ Sinta-se à vontade para fazer um fork do projeto e enviar pull requests.
 
 [Termos de uso](https://app.dio.me/terms/)
 
-### Criado utilizando inteligência artificial e revisado por humano.
-
 # Código de Conduta
 
 ## Introdução
@@ -165,3 +163,5 @@ Para dúvidas ou mais informações sobre este Código de Conduta, entre em cont
 ---
 
 **Última atualização:** [11/09/2024]
+
+### Criado utilizando inteligência artificial e revisado por humano.
