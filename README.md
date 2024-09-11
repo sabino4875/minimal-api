@@ -95,10 +95,19 @@ Contém uma implementação dos testes de uma API mínima, baseada no desafio pr
     "Seconds": 86400
   } 
 
+## Referência bibliográfica
+- [Markdown Syntax](https://www.markdownguide.org/basic-syntax/)
+- [Associação de parâmetros em aplicativos de API mínima](https://learn.microsoft.com/pt-br/aspnet/core/fundamentals/minimal-apis/parameter-binding?view=aspnetcore-8.0)
+- [Customize the behavior of AuthorizationMiddleware](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/customizingauthorizationmiddlewareresponse?view=aspnetcore-8.0)
+- [Generated Values](https://learn.microsoft.com/en-us/ef/core/modeling/generated-properties?tabs=fluent-api)
+- [Data Seeding](https://learn.microsoft.com/en-us/ef/core/modeling/data-seeding#model-seed-data)
+- [Unit testing C# with MSTest and .NET](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-mstest)
+- [Integration tests in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-8.0)
+- [Policy-based authorization in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/policies?view=aspnetcore-8.0)
 
-   
 ## Contribuições
 Sinta-se à vontade para fazer um fork do projeto e enviar pull requests.
 
 ## Licença
-Este projeto está licenciado sob a licença MIT.
+
+[Termos de uso](https://app.dio.me/terms/)
